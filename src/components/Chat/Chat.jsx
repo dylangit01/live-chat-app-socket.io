@@ -1,11 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import { TextField, Typography, Button, Card } from '@material-ui/core';
 import queryString from 'query-string';
 import io from 'socket.io-client'
+import useStyles from './styles'
 
 const ENDPOINT = 'localhost:5000'
 let socket;
 
 const Chat = ({ location }) => {
+	const classes = useStyles();
+
 	const [name, setName] = useState('')
 	const [room, setRoom] = useState('')
 	const [message, setMessage] = useState('')
@@ -49,13 +53,16 @@ const Chat = ({ location }) => {
 
 	console.log(message, messages);
 	return (
-		<div className='outerContainer'>
-			<div className='container'>
-				<input
+		<div className={classes.outerContainer}>
+			<div className={classes.container}>
+				<TextField
+					fullWidth
+					variant='outlined'
+					placeholder='Type a message'
 					type='text'
 					value={message}
 					onChange={e => setMessage(e.target.value)}
-					onKeyPress={event => event.key === 'Enter' && sendMessage(event)}
+					onKeyDown={event => event.key === 'Enter' && sendMessage(event)}
 				 />
 			</div>
 		</div>
