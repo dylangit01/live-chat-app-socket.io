@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {TextField, Typography, Button, Paper} from '@material-ui/core'
 import { Link } from 'react-router-dom';
 import useStyles from './styles'
