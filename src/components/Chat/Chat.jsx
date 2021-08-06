@@ -16,9 +16,15 @@ const Chat = ({ location }) => {
 		setName(name);
 		setRoom(room)
 
-		// send object to backend
-		socket.emit('join', {name, room})
-		
+		// send object to backend, we also can send some callback fun to the backend, such as handling error msg:
+		socket.emit('join', { name, room }, () => {
+
+		});
+
+		return () => {
+			socket.emit('disconnect');
+			socket.off()
+		}
 	}, [ENDPOINT])
 
 	return (
