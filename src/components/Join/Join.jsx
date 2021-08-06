@@ -16,9 +16,7 @@ const Join = () => {
 				<TextField fullWidth placeholder='Room' className={classes.roomInput} variant='outlined' type='text' onChange={e => setRoom(e.target.value)} />
 
 				{/* using query string */}
-				<Link onClick={e => (!name || !room) && e.preventDefault()} to={`/chat?name=${name}&room=${room}`}>
-					<Button className={classes.button} variant='contained' fullWidth color='primary' type='submit'>Sign In</Button>
-				</Link>
+					<Button component={Link} to={(name && room) && `/chat?name=${name}&room=${room}`} className={classes.button} variant='contained' fullWidth color='primary' type='submit'>Sign In</Button>
 			</div>
 		</Paper>
 	)
