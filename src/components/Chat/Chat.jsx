@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { TextField, Typography, Button, Card } from '@material-ui/core';
 import queryString from 'query-string';
-import io from 'socket.io-client'
-import useStyles from './styles'
+import io from 'socket.io-client';
+import useStyles from './styles';
+import InfoBar from '../InfoBar/InfoBar';
 
 const ENDPOINT = 'localhost:5000'
 let socket;
@@ -55,10 +56,11 @@ const Chat = ({ location }) => {
 	return (
 		<div className={classes.outerContainer}>
 			<div className={classes.container}>
+				<InfoBar room ={room}/>
 				<TextField
 					fullWidth
 					variant='outlined'
-					placeholder='Type a message'
+					label='Type a message'
 					type='text'
 					value={message}
 					onChange={e => setMessage(e.target.value)}
