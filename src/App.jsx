@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Join from '../src/components/Join/Join'
-import Chat from '../src/components/Chat/Chat'
+import Join from './components/Join/Join'
+import Chat from './components/Chat/Chat'
 
 
 const App = () => {
@@ -9,7 +9,7 @@ const App = () => {
 		<Router>
 			<Switch>
 					<Route path='/' exact component={Join} />
-			<Route path='/chat' exact component={Chat} />
+					<Route path='/chat' exact component={Chat} />
 			</Switch>
 		
 		</Router>
