@@ -8,6 +8,7 @@ export default makeStyles((theme) => ({
 		height: '100vh',
 		alignItems: 'center',
 		backgroundColor: '#1A1A1D',
+		borderRadius: 0,
 		// '@media (min-width: 320px) and (max-width: 480px)': {
 		// 	height: '100vh'
 		// }
