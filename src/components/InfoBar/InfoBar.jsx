@@ -1,6 +1,6 @@
 import React from 'react';
 import useStyles from './styles';
-import { Typography, Button, Card, Grid } from '@material-ui/core';
+import { Typography, Button } from '@material-ui/core';
 import onlineIcon from '../../Icons/onlineIcon.png';
 import CloseIcon from '@material-ui/icons/Close';
 

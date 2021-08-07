@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { TextField, Typography, Button, Card } from '@material-ui/core';
 import queryString from 'query-string';
 import io from 'socket.io-client';
 import useStyles from './styles';
 import InfoBar from '../InfoBar/InfoBar';
 import Input from '../Input/Input';
+import Messages from '../Messages/Messages';
 
 const ENDPOINT = 'localhost:5000'
 let socket;
@@ -49,7 +49,7 @@ const Chat = ({ location }) => {
 
 		// only input has value, the event will be emitted, and the callback func is to clean the input message
 		if (message) {
-			socket.emit('sendMessage', { message }, () => setMessage(''))
+			socket.emit('sendMessage', message, () => setMessage(''))
 		}
 	}
 
@@ -57,7 +57,8 @@ const Chat = ({ location }) => {
 	return (
 		<div className={classes.outerContainer}>
 			<div className={classes.container}>
-				<InfoBar room ={room}/>
+				<InfoBar room={room} />
+				<Messages messages={messages} name={name} />
 				<Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
 			</div>
 		</div>
