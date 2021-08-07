@@ -4,6 +4,7 @@ import queryString from 'query-string';
 import io from 'socket.io-client';
 import useStyles from './styles';
 import InfoBar from '../InfoBar/InfoBar';
+import Input from '../Input/Input';
 
 const ENDPOINT = 'localhost:5000'
 let socket;
@@ -57,15 +58,7 @@ const Chat = ({ location }) => {
 		<div className={classes.outerContainer}>
 			<div className={classes.container}>
 				<InfoBar room ={room}/>
-				<TextField
-					fullWidth
-					variant='outlined'
-					label='Type a message'
-					type='text'
-					value={message}
-					onChange={e => setMessage(e.target.value)}
-					onKeyDown={event => event.key === 'Enter' && sendMessage(event)}
-				 />
+				<Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
 			</div>
 		</div>
 	)
